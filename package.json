@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-tinker",
+  "version": "1.0.0",
+  "description": "memecoin finder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habeebolamide/nodejs-tinker.git"
+  },
+  "author": "Habeeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habeebolamide/nodejs-tinker/issues"
+  },
+  "homepage": "https://github.com/habeebolamide/nodejs-tinker#readme",
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "axios": "^1.5.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3"
+  }
+}

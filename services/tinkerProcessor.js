@@ -5,7 +5,6 @@ const User = require('../models/user');
 const logger = require('../utils/logger');
 require('dotenv').config();
 
-// Telegram bot instance
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: false });
 
 async function runTinkerScan() {
@@ -13,44 +12,55 @@ async function runTinkerScan() {
 
   try {
     const prompt = `
-      You are a specialized crypto intelligence agent with real-time access to web trends, especially from:
-- Twitter (Crypto Twitter influencers and threads)
+      You are a real-time crypto intelligence agent with access to trending data from:
+- Crypto Twitter (CT), especially influencers and community-driven buzz
 - Alpha Telegram groups
-- DEX launchpads (e.g., Pump.fun, DEXTools, Uniswap listings)
+- DEX launchpads and trend trackers (like DEXTools, Pump.fun, Uniswap,DexScreener)
 
-Your task is to identify and report on **up to 3 newly launched meme coins (called "tinkers")** that show high potential for virality, based on community hype and early market signals.
+Your job is to identify up to **1 - 5 high-potential new meme coins ("tinkers")** that are **very recently launched** and **actively gaining traction within the past 60–90 minutes** — not earlier today.
 
-Each coin must:
-- Be **recently launched** (preferably within the last 48 hours)
-- Show clear signs of **hype** from credible sources (influencers, Telegram, early whales)
-- Display early **viral momentum** (trending, active discussion, notable buys)
+### Tinker Qualification Criteria:
+Each tinker must:
+- Be **less than 30 minutes old**
+- Show **fresh viral momentum** (not hype from hours ago)
+- Be trending or gaining mentions in **real-time Twitter threads, Telegram calls, or DEX scans**
+- Appear **non-rugged so far** (no rug pull signs, still tradable, liquidity not drained)
 
-For each tinker, return a structured JSON object containing:
+You must **filter out coins** that:
+- Were launched earlier today but are no longer trending
+- Show signs of rugs, soft rugs, or extreme volatility suggesting imminent failure
+- Are over-promoted but lack real buying pressure or traction
+
+### For each coin, return this structured JSON:
 - "name": UPPERCASE name of the token
-- "reason": A brief explanation of why it’s gaining traction
-- "hypeLevel": One of "High", "Medium", or "Low" — based on observed buzz
-- "riskLevel": One of "High", "Medium", or "Low" — based on volatility, anon devs, locked liquidity, etc.
-- "source": The primary source where it was discovered (e.g., Twitter, Telegram, DEXTools)
-- "Blockchain": The blockchain the token is on (e.g., Ethereum, BSC, Solana, Base)
-- "foundAt": The timestamp (in ISO format) when the coin was first discovered
-- "createdAt": The timestamp (in ISO format) when this report was generated
+- "reason": Why it’s currently gaining real-time traction
+- "hypeLevel": "High", "Medium", or "Low"
+- "riskLevel": "High", "Medium", or "Low" — consider age, liquidity lock, dev transparency, etc.
+- "source": Where it was spotted (e.g., Twitter, Telegram, DEX)
+- "Blockchain": Blockchain the token is on (e.g., Solana, Base, Ethereum, BSC)
+- "foundAt": ISO timestamp when you discovered it
+- "createdAt": ISO timestamp when this JSON was generated
+- "CA": Optional, if you have a contract address, include it here
 
-**Output Format:**
-- Return a valid JSON array of 1 to 3 objects
-- Do **not** include any introductory or extra text — return the raw JSON only
-- Do **not** use markdown or code block formatting
+### Output Rules:
+- Return **only** the valid JSON array of 1–5 entries
+- No intro text, no commentary, no code formatting — just pure JSON
+- Make sure all timestamps reflect current UTC time
+- Make sure the "CA" is available on dexScreener ,make sure it is not a rug pull also it is a valid contract address that is available on the blockchain explorer
+- Blockchain should be only: Base and Solana
 
-**Example:**
+### Example:
 [
   {
     "name": "MEMEX",
-    "reason": "Launched today on Base. Mentioned by Pauly. Trending in CT.",
+    "reason": "Launched 45 mins ago. Pauly tweeted it. Over 800 holders already. Trending on DEXTools.",
     "hypeLevel": "High",
     "riskLevel": "Medium",
     "source": "Twitter",
     "Blockchain": "Base",
-    "foundAt": "2025-06-29T12:00:00Z",
-    "createdAt": "2025-06-29T12:05:00Z"
+    "foundAt": "2025-06-29T17:00:00Z",
+    "createdAt": "2025-06-29T17:03:00Z"
+    "CA": "0x1234567890abcdef1234567890abcdef12345678"
   }
 ]
 
@@ -101,11 +111,12 @@ For each tinker, return a structured JSON object containing:
           riskLevel: t.riskLevel,
           source: t.source || 'Unknown',
           Blockchain: t.Blockchain || 'Unknown',
+          CA: t.CA || 'N/A',
           foundAt: t.foundAt ? new Date(t.foundAt) : now,
           createdAt: t.createdAt ? new Date(t.createdAt) : now,
         });
 
-        const message = `🚀 *${t.name}*\n\n🧠 ${t.reason}\n🔥 Hype: ${t.hypeLevel}\n⚠️ Risk: ${t.riskLevel}\n🌐 Source: ${t.source}\n🧬 Chain: ${t.Blockchain}`;
+        const message = `🚀 *${t.name}*\n\n🧠 ${t.reason}\n🔥 Hype: ${t.hypeLevel}\n⚠️ Risk: ${t.riskLevel}\n🌐 Source: ${t.source}\n🧬 Chain: ${t.Blockchain}\n🧾 CA: ${t.CA}`;
 
         for (const user of users) {
           await bot.sendMessage(user.chatId, message, { parse_mode: 'Markdown' });

@@ -8,6 +8,7 @@ const tinkerSchema = new mongoose.Schema({
   riskLevel: String,
   source: String,
   foundAt: Date,
+  CA: String, // Contract Address
   createdAt: { type: Date, default: Date.now }
 });
 

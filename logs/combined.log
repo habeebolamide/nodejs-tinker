@@ -1,7 +1,57 @@
-[2025-06-29 18:50:25] INFO: 🧪 Gemini returned 4 potential tinkers
-[2025-06-29 18:52:00] INFO: 🚀 [2025-06-29T17:52:00.110Z] Running tinker job
-[2025-06-29 18:52:22] INFO: 🧪 Gemini returned 3 potential tinkers
-[2025-06-29 18:54:00] INFO: 🚀 [2025-06-29T17:54:00.065Z] Running tinker job
-[2025-06-29 18:54:27] INFO: 🧪 Gemini returned 4 potential tinkers
-[2025-06-29 18:56:00] INFO: 🚀 [2025-06-29T17:56:00.097Z] Running tinker job
-[2025-06-29 18:56:15] INFO: 🧪 Gemini returned 3 potential tinkers
+[2025-06-30 09:31:00] INFO: 🚀 [2025-06-30T08:31:00.042Z] Running tinker job
+[2025-06-30 09:31:20] INFO: 🧪 Gemini returned 1 potential tinkers
+[2025-06-30 09:31:20] INFO: 🧪 Gemini returned: [
+  {
+    "name": "SOLCAT",
+    "reason": "Launched ~27 minutes ago. Gaining significant traction due to strong community engagement and a prominent Crypto Twitter influencer shout-out. Trending rapidly on DexScreener and Pump.fun as new buyers enter. No rug-pull signs observed so far, liquidity appears intact.",
+    "hypeLevel": "High",
+    "riskLevel": "High",
+    "source": "Twitter, Telegram, DEX",
+    "Blockchain": "Solana",
+    "foundAt": "2024-07-27T10:28:34Z",
+    "createdAt": "2024-07-27T10:33:34Z",
+    "CA": "9PjFkLhG8nB7cC6dR5eE4fT3gV2hU1iJ0kL9mN8oP7qR6sT5uV4wX3yZ2aB1c",
+    "MarketCap": 75000
+  }
+] 
+[2025-06-30 09:32:00] INFO: 🚀 [2025-06-30T08:32:00.059Z] Running tinker job
+[2025-06-30 09:32:05] INFO: 🧪 Gemini returned 0 potential tinkers
+[2025-06-30 09:32:05] INFO: 🧪 Gemini returned: [] 
+[2025-06-30 09:32:05] INFO: 😐 No tinkers found by Gemini
+[2025-06-30 09:33:00] INFO: 🚀 [2025-06-30T08:33:00.054Z] Running tinker job
+[2025-06-30 09:33:02] INFO: 🧪 Gemini returned 0 potential tinkers
+[2025-06-30 09:33:02] INFO: 🧪 Gemini returned: [] 
+[2025-06-30 09:33:02] INFO: 😐 No tinkers found by Gemini
+[2025-06-30 09:34:00] INFO: 🚀 [2025-06-30T08:34:00.042Z] Running tinker job
+[2025-06-30 09:34:14] INFO: 🧪 Gemini returned 2 potential tinkers
+[2025-06-30 09:34:14] INFO: 🧪 Gemini returned: [
+  {
+    "name": "PUPSOL",
+    "reason": "Launched 18 minutes ago. Rapid volume surge and price action, trending on DexScreener new pair lists for Solana. Gaining buzz from multiple Crypto Twitter alpha callers and active discussions in private Telegram groups. Liquidity appears solid for its age, no signs of rug.",
+    "hypeLevel": "High",
+    "riskLevel": "Medium",
+    "source": "DEX, Twitter, Telegram",
+    "Blockchain": "Solana",
+    "foundAt": "2024-05-15T10:30:00Z",
+    "createdAt": "2024-05-15T10:33:00Z",
+    "CA": "5yC2mY3KxV6wE4gR1qP7zA8bN9cD0xFuGz1hI2jK3L4M",
+    "MarketCap": "$1.2M"
+  },
+  {
+    "name": "WIFCOIN",
+    "reason": "Launched 28 minutes ago. Initially slow, but just received a significant retweet from a well-known Solana influencer. Volume has picked up sharply in the last 10 minutes, showing strong buying pressure on DexScreener. Community is starting to form around the 'dog on Sol' narrative.",
+    "hypeLevel": "Medium",
+    "riskLevel": "High",
+    "source": "Twitter, DEX",
+    "Blockchain": "Solana",
+    "foundAt": "2024-05-15T10:31:00Z",
+    "createdAt": "2024-05-15T10:33:00Z",
+    "CA": "8nB6xZ7WcE9yV0uT1sR2qP3oN4mL5kJ6iH7gF8eD9c",
+    "MarketCap": "$500K"
+  }
+] 
+[2025-06-30 09:35:00] INFO: 🚀 [2025-06-30T08:35:00.037Z] Running tinker job
+[2025-06-30 09:35:14] INFO: 🧪 Gemini returned 0 potential tinkers
+[2025-06-30 09:35:14] INFO: 🧪 Gemini returned: [] 
+[2025-06-30 09:35:14] INFO: 😐 No tinkers found by Gemini
+[2025-06-30 09:36:00] INFO: 🚀 [2025-06-30T08:36:00.048Z] Running tinker job

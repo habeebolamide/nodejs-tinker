@@ -12,7 +12,7 @@ const User = require('./models/user');
 
 
 // Every hour at minute 0 (e.g., 12:00, 1:00, 2:00...)
-cron.schedule('*/2 * * * *', () => {
+cron.schedule('*/1 * * * *', () => {
   runTinkerScan()
 });
 

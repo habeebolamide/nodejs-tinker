@@ -40,14 +40,21 @@ You must **filter out coins** that:
 - "Blockchain": Blockchain the token is on (e.g., Solana, Base, Ethereum, BSC)
 - "foundAt": ISO timestamp when you discovered it
 - "createdAt": ISO timestamp when this JSON was generated
-- "CA": Optional, if you have a contract address, include it here
+- "CA": Optional, if you have a contract address, include it here,
+- "MarketCap": Optional, if you have a market cap, include it here, make sure it is a valid market cap that is available on the blockchain explorer
+
+### Important Notes:
+- make sure the CA is available on dexScreener ,make sure it is not a rug pull also it is a valid contract address that is available on the blockchain explorer
 
 ### Output Rules:
 - Return **only** the valid JSON array of 1–5 entries
 - No intro text, no commentary, no code formatting — just pure JSON
 - Make sure all timestamps reflect current UTC time
 - Make sure the "CA" is available on dexScreener ,make sure it is not a rug pull also it is a valid contract address that is available on the blockchain explorer
-- Blockchain should be only: Base and Solana
+- Blockchain should be only:Solana
+- Again with the CA, make sure it is a valid contract address that is available on the blockchain explorer
+- Analyze the data from the sources mentioned above, and make sure to include the most recent and relevant information
+- If you cannot find any valid tinkers, return an empty array: []
 
 ### Example:
 [
@@ -83,6 +90,7 @@ You must **filter out coins** that:
     try {
       tinkers = JSON.parse(cleaned);
       logger.info(`🧪 Gemini returned ${tinkers.length} potential tinkers`);
+      logger.info(`🧪 Gemini returned: ${cleaned} `);
     } catch (e) {
       logger.error('❌ Failed to parse Gemini response:', e.message);
       logger.error(`👀 Raw response:\n${cleaned}`);
